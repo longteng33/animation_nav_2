@@ -1,0 +1,2 @@
+# animation_nav_2
+用animation和js制作的动画菜单，从不同的方向进入会有不同的动画效果
