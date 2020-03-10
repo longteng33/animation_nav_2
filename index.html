@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>图片展示</title>
+    <style>
+       
+
+    </style>
+    <link rel="stylesheet" href= "./index.css">
+</head>
+<body>
+    <ul class="nav-con">
+        <li>
+            <img src="img/1.jpg" alt="">
+            <div class="cover">
+                <div class="des">晋太元中，武陵人捕鱼为业</div>
+            </div>
+        </li>
+        <li>
+            <img src="img/2.jpg" alt="">
+            <div class="cover">
+                <div class="des">缘溪行，忘路之远近</div>
+            </div>
+        </li>
+        <li>
+            <img src="img/3.jpg" alt="">
+            <div class="cover">
+                <div class="des">忽逢桃花林，夹岸数百步</div>
+            </div>
+        </li>
+        <li>
+            <img src="img/4.jpg" alt="">
+            <div class="cover">
+                <div class="des">中无杂树，芳草鲜美，落英缤纷</div>
+            </div>
+        </li>
+        <li>
+            <img src="img/5.jpg" alt="">
+            <div class="cover">
+                <div class="des">渔人甚异之，复前行，欲穷其林</div>
+            </div>
+        </li>
+    </ul>
+ 
+    <script>
+        var oUl=document.getElementsByTagName('ul')[0];
+        
+
+        window.onload=function(){
+            oUl.classList.add('init');
+        }
+        
+
+          // 判断进入方向函数
+          function getDirection(e,ele){
+            // b为长宽比
+            var b=(ele.offsetHeight)/(ele.offsetWidth);
+            var x=(e.offsetX-ele.offsetWidth/2)*b;
+            var y=e.offsetY-ele.offsetHeight/2;
+            // Math.atan2返回弧度值
+            var d=(Math.round((Math.atan2(y,x)*(180/Math.PI)+180)/90)+3)%4;
+           
+            return d;
+        }
+
+        var oLi=document.getElementsByTagName("li");
+        for(var i=0;i<oLi.length;i++){
+            oLi[i].onmouseenter=function(e){
+                var dir=getDirection(e,this);
+                var oDes=this.getElementsByClassName("des")[0];
+                // 让这个节点只有des这个类，因为不知道上次添加的类是in-top还是in-left，不能使用remove
+                oDes.className="des";
+            switch(dir){
+                case 0:
+                oDes.classList.add("in-top");
+                break;
+                case 1:
+                oDes.classList.add("in-right");
+                break;
+                case 2:
+                oDes.classList.add("in-bottom");
+                break;
+                case 3:
+                oDes.classList.add("in-left");
+            }
+           
+            }
+            oLi[i].onmouseleave=function(e){
+                var dir=getDirection(e,this);
+                var oDes=this.getElementsByClassName("des")[0];
+                // 让这个节点只有des这个类，因为不知道上次添加的类是in-top还是in-left，不能使用remove
+                oDes.className="des";
+            switch(dir){
+                case 0:
+                oDes.classList.add("out-top");
+                break;
+                case 1:
+                oDes.classList.add("out-right");
+                break;
+                case 2:
+                oDes.classList.add("out-bottom");
+                break;
+                case 3:
+                oDes.classList.add("out-left");
+            }
+            }
+        }
+    </script>
+</body>
+</html>

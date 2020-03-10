@@ -1,0 +1,148 @@
+body,ul,li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.nav-con{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    min-width: 600px;
+    margin-top: 10px;
+}
+.nav-con li{
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 356px;
+    margin: 0 10px;
+    border: 2px solid purple;
+    border-radius: 20px;
+    overflow: hidden;
+    font-size: 0;
+    background: rgba(0,0,0,0.8);
+    cursor: pointer;
+}
+.nav-con li img{
+    width: 200px;
+    height: 356px;
+    border-radius: 18px;
+    transform: translateY(100%);
+    transition: transform 2s ease-out;
+}
+
+ /* 页面加载完成之后就添加上这个类 */
+ .init li img{
+    transform: translateY(0) !important;
+}
+.nav-con li:nth-child(1) img{
+    transition-delay: 0s;
+}
+.nav-con li:nth-child(2) img{
+    transition-delay: 0.2s;
+}
+.nav-con li:nth-child(3) img{
+    transition-delay: 0.4s;
+}
+.nav-con li:nth-child(4) img{
+    transition-delay: 0.6s;
+}
+.nav-con li:nth-child(5) img{
+    transition-delay: 0.8s;
+}
+.cover{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 44px;
+    width: 100%;
+    /* border: 1px solid red; */
+    overflow: hidden;
+}
+.cover .des{
+    font-size: 12px;
+    background: linear-gradient(to bottom,transparent,rgba(0,0,0,0.8));
+    color: white;
+    height: 45px;
+    padding: 0 10px;
+    transform: translateY(100%);
+    text-align: center;
+}
+
+@keyframes inDes{
+    100%{
+        transform: translate(0,0);
+    }
+}
+/* 上 */
+.cover .in-top{
+    transform: translate(0,-100%);
+    animation: inDes 0.3s linear forwards;
+}
+@keyframes outTopDes{
+    0%{
+        transform: translate(0,0);
+    }
+    100%{
+        transform: translate(0,-100%);
+    }
+}
+.cover .out-top{
+    transform: translate(0,-100%);
+    animation: outTopDes 0.3s linear;
+}
+/* 右 */
+.cover .in-right{
+    transform: translate(100%,0);
+    animation: inDes 0.3s linear forwards;
+}
+@keyframes outRightDes{
+    0%{
+        transform: translate(0,0);
+    }
+    100%{
+        transform: translate(100%,0);
+    }
+}
+.cover .out-right{
+    transform: translate(100%,0);
+    animation: outRightDes 0.3s linear forwards;
+}
+/* 下 */
+.cover .in-bottom{
+    transform: translate(0,100%);
+    animation: inDes 0.3s linear forwards;
+}
+@keyframes outBottomDes{
+    0%{
+        transform: translate(0,0);
+    }
+    100%{
+        transform: translate(0,100%);
+    }
+}
+.cover .out-bottom{
+    transform: translate(0,100%);
+    animation: outBottomDes 0.3s linear forwards;
+}
+/* 左 */
+.cover .in-left{
+    transform: translate(-100%,0);
+    animation: inDes 0.3s linear forwards;
+}
+@keyframes outLeftDes{
+    0%{
+        transform: translate(0,0);
+    }
+    100%{
+        transform: translate(-100%,0);
+    }
+}
+.cover .out-left{
+    transform: translate(-100%,0);
+    animation: outLeftDes 0.3s linear forwards;
+}
+
+
+
