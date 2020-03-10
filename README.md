@@ -1,10 +1,10 @@
 # animation_nav_2
-用animation和js制作的动画菜单，从不同的方向进入会有不同的动画效果
+用animation和js制作的动画菜单，从不同的方向进入会有不同的动画效果  
 https://longteng33.github.io/animation_nav_2  
 
 1、首先通过js判断鼠标进入、离开的方向  
 原理：  
-
+[说明图片](https://github.com/longteng33/animation_nav_2/blob/master/img/1.png)  
 建设鼠标进入的是一个正方形（长方形只需在此基础上乘以一个长款比即可）  
 在鼠标的mouseenter事件发生时，获取 x=e.offsetX-ele.offsetWidth/2和y=e.offsetY-ele.offsetHeight/2  
 Math.atan2(y,x)，得到弧度值  
